@@ -1,0 +1,264 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		067E976F15CFD45C008A2269 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067E976E15CFD45C008A2269 /* UIKit.framework */; };
+		067E977115CFD45C008A2269 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067E977015CFD45C008A2269 /* Foundation.framework */; };
+		067E977315CFD45C008A2269 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 067E977215CFD45C008A2269 /* CoreGraphics.framework */; };
+		067E977915CFD45C008A2269 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 067E977715CFD45C008A2269 /* InfoPlist.strings */; };
+		067E977B15CFD45D008A2269 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 067E977A15CFD45D008A2269 /* main.m */; };
+		067E977F15CFD45D008A2269 /* TSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 067E977E15CFD45D008A2269 /* TSAppDelegate.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		067E976A15CFD45C008A2269 /* TmallSelection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TmallSelection.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		067E976E15CFD45C008A2269 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		067E977015CFD45C008A2269 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		067E977215CFD45C008A2269 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		067E977615CFD45C008A2269 /* TmallSelection-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TmallSelection-Info.plist"; sourceTree = "<group>"; };
+		067E977815CFD45C008A2269 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		067E977A15CFD45D008A2269 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		067E977C15CFD45D008A2269 /* TmallSelection-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TmallSelection-Prefix.pch"; sourceTree = "<group>"; };
+		067E977D15CFD45D008A2269 /* TSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSAppDelegate.h; sourceTree = "<group>"; };
+		067E977E15CFD45D008A2269 /* TSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSAppDelegate.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		067E976715CFD45C008A2269 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				067E976F15CFD45C008A2269 /* UIKit.framework in Frameworks */,
+				067E977115CFD45C008A2269 /* Foundation.framework in Frameworks */,
+				067E977315CFD45C008A2269 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		067E975F15CFD45C008A2269 = {
+			isa = PBXGroup;
+			children = (
+				067E977415CFD45C008A2269 /* TmallSelection */,
+				067E976D15CFD45C008A2269 /* Frameworks */,
+				067E976B15CFD45C008A2269 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		067E976B15CFD45C008A2269 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				067E976A15CFD45C008A2269 /* TmallSelection.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		067E976D15CFD45C008A2269 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				067E976E15CFD45C008A2269 /* UIKit.framework */,
+				067E977015CFD45C008A2269 /* Foundation.framework */,
+				067E977215CFD45C008A2269 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		067E977415CFD45C008A2269 /* TmallSelection */ = {
+			isa = PBXGroup;
+			children = (
+				067E977D15CFD45D008A2269 /* TSAppDelegate.h */,
+				067E977E15CFD45D008A2269 /* TSAppDelegate.m */,
+				067E977515CFD45C008A2269 /* Supporting Files */,
+			);
+			path = TmallSelection;
+			sourceTree = "<group>";
+		};
+		067E977515CFD45C008A2269 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				067E977615CFD45C008A2269 /* TmallSelection-Info.plist */,
+				067E977715CFD45C008A2269 /* InfoPlist.strings */,
+				067E977A15CFD45D008A2269 /* main.m */,
+				067E977C15CFD45D008A2269 /* TmallSelection-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		067E976915CFD45C008A2269 /* TmallSelection */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 067E978215CFD45D008A2269 /* Build configuration list for PBXNativeTarget "TmallSelection" */;
+			buildPhases = (
+				067E976615CFD45C008A2269 /* Sources */,
+				067E976715CFD45C008A2269 /* Frameworks */,
+				067E976815CFD45C008A2269 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TmallSelection;
+			productName = TmallSelection;
+			productReference = 067E976A15CFD45C008A2269 /* TmallSelection.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		067E976115CFD45C008A2269 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TS;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 067E976415CFD45C008A2269 /* Build configuration list for PBXProject "TmallSelection" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 067E975F15CFD45C008A2269;
+			productRefGroup = 067E976B15CFD45C008A2269 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				067E976915CFD45C008A2269 /* TmallSelection */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		067E976815CFD45C008A2269 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				067E977915CFD45C008A2269 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		067E976615CFD45C008A2269 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				067E977B15CFD45D008A2269 /* main.m in Sources */,
+				067E977F15CFD45D008A2269 /* TSAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		067E977715CFD45C008A2269 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				067E977815CFD45C008A2269 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		067E978015CFD45D008A2269 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		067E978115CFD45D008A2269 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		067E978315CFD45D008A2269 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TmallSelection/TmallSelection-Prefix.pch";
+				INFOPLIST_FILE = "TmallSelection/TmallSelection-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		067E978415CFD45D008A2269 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TmallSelection/TmallSelection-Prefix.pch";
+				INFOPLIST_FILE = "TmallSelection/TmallSelection-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		067E976415CFD45C008A2269 /* Build configuration list for PBXProject "TmallSelection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				067E978015CFD45D008A2269 /* Debug */,
+				067E978115CFD45D008A2269 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		067E978215CFD45D008A2269 /* Build configuration list for PBXNativeTarget "TmallSelection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				067E978315CFD45D008A2269 /* Debug */,
+				067E978415CFD45D008A2269 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 067E976115CFD45C008A2269 /* Project object */;
+}
