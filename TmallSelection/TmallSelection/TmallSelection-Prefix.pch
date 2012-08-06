@@ -12,3 +12,56 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+
+#define BUNDLE_UIIMAGE(_IMAGE_NAME_) [UIImage imageNamed:_IMAGE_NAME_]
+
+#define FGLOCALIZESTRING(_VALUE_) NSLocalizedString(_VALUE_,"")
+
+typedef enum 
+{
+	error_type = -1,
+	
+	//各接口
+	main_data_type=0,
+    hotwords_data_type,
+    suggest_data_type,
+    search_data_type,
+    search_more_type,
+    cate_data_type,
+    category_data_type,
+    more_feedback_type,
+    detial_data_type,
+    free_data_type,
+    album_data_type,
+    album_earlier_data_type,
+    album_detial_data_type,
+    more_data_type,
+    report_download_type,
+    evaluate_game_type,
+    //....
+    
+    
+}request_Type;
+
+//设置界面交互是否可用
+#define SET_VIEW_INTERACTION(_ENABLE_) self.view.userInteractionEnabled = _ENABLE_; self.navigationController.view.userInteractionEnabled = _ENABLE_;
+
+
+
+#ifdef DEBUG
+//#define TRACE(fmt, ...) NSLog((@"(%@) %s [Line %d] " fmt), [NSThread currentThread], __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#define TRACE(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+#define ERROR(...) [[NSAssertionHandler currentHandler] handleFailureInFunction:[NSString stringWithCString:__PRETTY_FUNCTION__ encoding:NSUTF8StringEncoding] file:[NSString stringWithCString:__FILE__ encoding:NSUTF8StringEncoding] lineNumber:__LINE__ description:__VA_ARGS__]
+#else
+#define TRACE(...) do { } while (0)
+#ifndef NS_BLOCK_ASSERTIONS
+#define NS_BLOCK_ASSERTIONS
+#endif
+#define ERROR(...) NSLog(@"%s %@", __PRETTY_FUNCTION__, [NSString stringWithFormat:__VA_ARGS__])
+#endif
+
+#define ASSERT(condition, ...) do { if (!(condition)) { ERROR(__VA_ARGS__); }} while(0)
+
+#define	PATHRESOURCE(__ResourceName__, __ResourceType__)	[[NSBundle mainBundle] pathForResource:__ResourceName__ ofType:__ResourceType__]
