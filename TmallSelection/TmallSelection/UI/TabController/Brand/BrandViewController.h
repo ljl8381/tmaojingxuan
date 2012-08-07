@@ -7,7 +7,13 @@
 //
 
 #import "TSViewController.h"
+#import "EGORefreshTableHeaderView.h"
 
-@interface BrandViewController : TSViewController<UITableViewDataSource,UITableViewDelegate>
+@interface BrandViewController : TSViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate>
 
+{
+    EGORefreshTableHeaderView *_refreshHeaderView;
+    BOOL                        _reloading;
+
+}
 @end

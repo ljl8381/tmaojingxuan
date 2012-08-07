@@ -26,8 +26,7 @@
     if (self) {
         self.enabled = YES;
         self.shouldShowUIBarsOnScrollUp = YES;
-        
-        //viewController.navigationController.navigationBar.translucent = YES;
+       // viewController.navigationController.navigationBar.translucent = YES;
         viewController.navigationController.toolbar.translucent = YES;
         _viewController = viewController;
     }
@@ -36,12 +35,26 @@
 
 - (void)_layoutWithScrollView:(UIScrollView*)scrollView deltaY:(CGFloat)deltaY
 {
+    TRACE(@"deltaY=%f", deltaY);
+    if (deltaY>0) {
+        _viewController.navigationController.navigationBar.translucent = YES;
+    }
+//    else if (deltaY<-40)
+//    {
+//        _viewController.navigationController.navigationBar.translucent = NO;
+//    }
+   // _viewController.navigationController.navigationBar.translucent = YES;
     if (!self.enabled) return;
     // navbar
     UINavigationBar* navBar = _viewController.navigationController.navigationBar;
     BOOL isNavBarExisting = navBar && navBar.superview && !navBar.hidden;
     if (isNavBarExisting) {
         navBar.top = MIN(MAX(navBar.top-deltaY, STATUS_BAR_HEIGHT-navBar.height), STATUS_BAR_HEIGHT);
+        NSLog(@"navi=%f",navBar.top);
+//        if (navBar.top==20) {
+//            _viewController.navigationController.navigationBar.translucent = NO;
+//
+//        }
     }
     
     // toolbar
@@ -84,6 +97,11 @@
             tabBarSuperviewHeight = tab.superview.height;
         }
         tab.top = MIN(MAX(tab.top+deltaY, tabBarSuperviewHeight-tab.height), tabBarSuperviewHeight);
+         NSLog(@"navi=%f",tab.top);
+        if (tab.top==434&&_viewController.navigationController.navigationBar.translucent == YES) {
+            _viewController.navigationController.navigationBar.translucent = NO;
+        
+        }
         tabView = tab;
         //tabcontroller.view.frame = CGRectMake(0, 440+deltaY, 320, 44);
     }
