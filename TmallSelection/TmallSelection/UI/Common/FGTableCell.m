@@ -7,8 +7,7 @@
 //
 
 #import "FGTableCell.h"
-#import "FGHeader.h"
-#import "FGCellObject.h"//使用FGCellObject
+#import "TSHeader.h"
 #import "Color+Hex.h"
 #define hXValue 88
 
@@ -23,7 +22,6 @@
 @synthesize gameSize = _gameSize;
 @synthesize gamePrice = _gamePrice;
 @synthesize languageString = _languageString;
-@synthesize heartView = _heartView;
 @synthesize downUrl = _downUrl;
 @synthesize gameVersion = _gameVersion;
 @synthesize oldPrice = _oldPrice;
@@ -37,7 +35,6 @@
     }
     [_gameIcon release];
     [_gameName release];
-    [_heartView release];
     [_gameSize release];
     [_freeLine release];
     
@@ -104,28 +101,7 @@
         
         _gameName.textAlignment = UITextAlignmentLeft;
         [self addSubview:_gameName];
-        
-        _heartView = [[HeartView alloc]initWithImagesDeselected:REMMEND_IMG_ONE partlySelected:REMMEND_IMG_TWO fullSelected:REMMEND_IMG_THREE];
-        [_heartView setImages];
-        _heartView.backgroundColor = [UIColor clearColor];
-        _heartView.frame =CGRectMake(hXValue, 40, _heartView.frame.size.width, _heartView.frame.size.height) ;
-        [self  addSubview:_heartView];
-        
-        _gameSize = [[UILabel alloc]initWithFrame:CGRectMake(hXValue + _heartView.frame.size.width+14, _heartView.frame.origin.y -3, 40, 16)];
-        _gameSize.backgroundColor = [UIColor clearColor];
-        _gameSize.textColor = [UIColor colorWithHex:0xFF888888];
-        [_gameSize setFont:[UIFont fontWithName:@"Helvetica" size:11]];
-        _gameSize.textAlignment = UITextAlignmentCenter;
-        [self addSubview:_gameSize];
-        
-        _languageString = [[UILabel alloc]initWithFrame:CGRectMake(_gameSize.frame.origin.x +14+_gameSize.frame.size.width, _heartView.frame.origin.y -3, 40, 16)];
-        _languageString.backgroundColor = [UIColor clearColor];
-        _languageString.textColor = [UIColor colorWithHex:0xFF666666];;
-        [_languageString setFont:[UIFont fontWithName:@"Helvetica" size:11]];
-        _languageString.textAlignment = UITextAlignmentLeft;
-        [self addSubview:_languageString];
-        
-        
+            
         _gamePrice = [[UILabel alloc]initWithFrame:CGRectMake(frame.origin.x +30, frame.origin.y+1, 40, 20)];
         _gamePrice.backgroundColor = [UIColor clearColor];
         _gamePrice.textColor = [UIColor colorWithHex:0xFFFFFFFF];
@@ -133,17 +109,6 @@
         _gamePrice.textAlignment = UITextAlignmentCenter;
         _gamePrice.userInteractionEnabled = NO;
         [self addSubview:_gamePrice];
-        
-        _gameCategory = [[UILabel alloc]initWithFrame:CGRectMake(hXValue+14,_heartView.frame.origin.y +_heartView.frame.size.height +8,209, 14)];
-        [_gameCategory setFont:[UIFont fontWithName:@"Helvetica-Bold" size:11]];
-        _gameCategory.backgroundColor = [UIColor clearColor];
-        _gameCategory.textColor = [UIColor colorWithHex:0xFF666666];
-        [self addSubview:_gameCategory];
-        
-        _categoryTagImg = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"images_icon_tag.png"]];
-        _categoryTagImg.frame = CGRectMake(hXValue, _heartView.frame.origin.y +_heartView.frame.size.height +10, 9, 9);
-        _categoryTagImg.hidden = YES;
-        [self addSubview:_categoryTagImg];
         
         
         _gameIntroduction = [[UILabel alloc]initWithFrame:CGRectMake(hXValue+14, _gameCategory.frame.origin.y +_gameCategory.frame.size.height, 209, 36)];
@@ -169,17 +134,7 @@
         _freeLine.frame = CGRectMake(5, 7, 33, 5);
         _freeLine.hidden = YES;
         [_gamePrice addSubview:_freeLine];
-        
-        UIImageView *sortLineImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:IMAGE_LINE ]];
-        sortLineImage.frame = CGRectMake(hXValue + _heartView.frame.size.width+6, _heartView.frame.origin.y, [UIImage imageNamed:IMAGE_LINE ].size.width, [UIImage imageNamed:IMAGE_LINE ].size.height);
-        [self addSubview:sortLineImage];
-        [sortLineImage release];
-        
-        UIImageView *sortLineImageDown = [[UIImageView alloc]initWithImage:[UIImage imageNamed:IMAGE_LINE ]];
-        sortLineImageDown.frame = CGRectMake(_gameSize.frame.origin.x +2+_gameSize.frame.size.width, _heartView.frame.origin.y, [UIImage imageNamed:IMAGE_LINE ].size.width, [UIImage imageNamed:IMAGE_LINE ].size.height);
-        [self addSubview:sortLineImageDown];
-        [sortLineImageDown release];
-    }
+      }
     return self;
 }
 - (void)didSelectDisclosureButton
@@ -308,7 +263,6 @@
         _gamePrice.text = [NSString stringWithFormat:@"￥%2.1f",[_oldPrice floatValue]];
         _freeLine.hidden = NO;    
     }
-    [_heartView displayRating: [[cellDic objectForKey:@"recommendedIndex"] floatValue]];
     
 }
 

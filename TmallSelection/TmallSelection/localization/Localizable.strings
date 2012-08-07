@@ -1,0 +1,78 @@
+//
+//  Localizable.strings
+//  BaiduNews
+//
+//  Created by Neusoft on 11-8-1.
+//  Copyright 2011 Neusoft. All rights reserved.
+//
+
+// How to get string Localized.
+
+
+// Texts.
+"Cancel" = "取消";
+"SearchApp" = "搜索";
+"Suggestion" ="精品推荐";
+"Album" ="专辑合辑";
+"Category" ="分类排行";
+"Free" ="限时免费";
+"More" ="更多";
+"waitingRemind" ="正在加载";
+"MoreButtonNoMsg" = "没有更多了";
+"MoreButtonHaveMsg" = "查看更多25条";
+"MoreButtonAddingMsg" = "正在加载";
+
+// Image files.
+
+"SearchBackground" ="images_search_bar_background.png";
+"SearchBackgroundImage" = "images_search_sort_background.png";
+"SearchClearImage" = "image_search_clear_searchbox.png";
+"SearchBottonBackground" = "images_searchbar_btn.png";
+"SearchBoxSearchResultImage" = "images_searchbar_background.png";
+"SearchBottonSelectBackground" = "images_searchbar_btn_pressed.png";
+"TitlebarFunctionImage" = "images_search_btn.png";
+"TitlebarFunctionImageSelected" = "images_search_btn_pressed.png";
+"CellSeparatorSecond" = "image_list_separator_line_second.png";
+"CellSelectedBackground" = "image_list_selected_background.png";
+"SearchCellCloseButtonImage" = "image_search_clear_search_item.png";
+"SearchCellCloseButtonImageHilight" = "image_search_clear_search_item_selected.png";
+"TabbarSuggestionButtonImage" = "images_tab_n1.png";
+"TabbarSuggestionButtonImageHilight" = "images_tab_n1_selected.png";
+"TabbarAlbumButtonImage" = "images_tab_n2.png";
+"TabbarAlbumButtonImageHilight" = "images_tab_n2_selected.png";
+"TabbarFreeButtonImage" = "images_tab_n3.png";
+"TabbarFreeButtonImageHilight" = "images_tab_n3_selected.png";
+"TabbarCategoryButtonImage" = "images_tab_n4.png";
+"TabbarCategoryButtonImageHilight" = "images_tab_n4_selected.png";
+"TabbarMoreButtonImage" = "images_tab_n5.png";
+"TabbarMoreButtonImageHilight" = "images_tab_n5_selected.png";
+// Path.
+"ImageCacheDirectory" = "/Library/Caches/ImageCache/";
+
+//SHK sharekit
+"Close" = "确定";
+"Saving to %@" = "正在分享到%@";
+"Saved!" = "分享成功";
+"Offline" = "提示";
+"Error" = "提示";
+"Connecting..." = "连接中...";
+"Attached: %@" = "附件: %@";
+"Sent from %@" ="来自 %@";
+
+"You must be online to login to %@" = "访问%@需要有网环境";
+
+"You must be online in order to share with %@" = "分享到%@需要有网环境";
+
+"Could not authenticate you. Please relogin." = "授权失败，请重新登陆";
+"There was a problem requesting authorization from %@" = "%@授权失败";
+"Request Error" = "提示";
+"There was an error while sharing" = "分享失败";
+"Logout from %@"="取消授权%@";
+
+"Authorize Error" = "提示";
+"There was an error while authorizing" = "授权失败";
+
+"Authenticating..." = "正在授权...";
+"There was a problem requesting access from %@" = "%@访问失败";
+
+"Access Error" = "提示";

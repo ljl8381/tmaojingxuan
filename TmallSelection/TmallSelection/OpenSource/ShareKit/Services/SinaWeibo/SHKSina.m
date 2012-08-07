@@ -10,7 +10,7 @@
 #import "JSON.h"
 #import "SHKItem.h"
 #import "Reachability.h"
-#import "FGHeader.h"
+#import "TSHeader.h"
 
 @implementation SHKSina
 

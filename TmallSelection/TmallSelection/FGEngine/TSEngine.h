@@ -9,15 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "TabController.h"
 #import "TSHttpHeader.h"
-#import "MainViewController.h"
-#import "MoreViewController.h"
-#import "CategoryViewController.h"
-#import "SearchViewController.h"
-#import "AlbumViewController.h"
-#import "GameDetailView.h"
-#import "SearchResultViewController.h"
-#import "ShareViewController.h"
-#import "ZBarSDK.h"
 
 typedef  enum
 {
@@ -29,15 +20,14 @@ typedef  enum
     
 }list_weibo;
 
-@interface TSEngine : NSObject <TabVCDelegate,TabVCDataSource,MainVCDelegate,TSHttpObjectDelegate,MoreVCDelegate,CateVCDelegate,searchDelegate,AlbumVCDelegate,detialPageInf,ShareVCDelegate,ZBarReaderDelegate>
+@interface TSEngine : NSObject <TabVCDelegate,TabVCDataSource>
 
 {
-    TabController          *_fgTabController;    //UI层
+    TabController          *_tsTabController;    //UI层
     TSHttpObject           *_fgHttpObject;         //网络层
-    MainViewController     *_mainController;
 }
 
-@property (nonatomic,copy)TabController    *fgTabController;
+@property (nonatomic,copy)TabController    *tsTabController;
 
 -(void)removeRequest:(request_Type)type;
 -(void)reportEvent:(NSString *)event withParameters:(NSDictionary *)paraDic;

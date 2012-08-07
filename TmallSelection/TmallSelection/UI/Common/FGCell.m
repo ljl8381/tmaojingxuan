@@ -7,9 +7,6 @@
 //
 
 #import "FGCell.h"
-#import "FGSearchCellView.h"
-#import "FGSearchHistoryCellView.h"
-#import "FGCategoryCell.h"
 
 @implementation FGCell
 
@@ -37,15 +34,15 @@ const unsigned int kTopCapHeight = 15;
 		switch (viewStyle) 
 		{
 
-			case FGCellViewStyleSearch:
-				_view = [[FGSearchCellView alloc] initWithFrame:frame];
-				break;
-			case FGCellViewStyleSearchHistory:
-				_view = [[FGSearchHistoryCellView alloc] initWithFrame:frame];
-				break;
-            case FGCellViewStyleCategory:
-				_view = [[FGCategoryCell alloc] initWithFrame:frame];
-				break;   
+//			case FGCellViewStyleSearch:
+//				_view = [[FGSearchCellView alloc] initWithFrame:frame];
+//				break;
+//			case FGCellViewStyleSearchHistory:
+//				_view = [[FGSearchHistoryCellView alloc] initWithFrame:frame];
+//				break;
+//            case FGCellViewStyleCategory:
+//				_view = [[FGCategoryCell alloc] initWithFrame:frame];
+//				break;   
             default:
 				_view = [[UIView alloc] initWithFrame:frame];
 				break;

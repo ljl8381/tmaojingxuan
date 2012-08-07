@@ -11,7 +11,7 @@
 @implementation TSAppDelegate
 
 @synthesize window = _window;
-
+@synthesize tsEngine = _tsEngine;
 - (void)dealloc
 {
     [_window release];
@@ -23,6 +23,14 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    if (!_tsEngine) 
+    {
+        TRACE(@"启动中间层引擎");
+        _tsEngine = [[TSEngine alloc] init];
+    }
+    
+    UINavigationController *rootNavigation = [[UINavigationController alloc] initWithRootViewController:self.tsEngine.tsTabController];
+    self.window.rootViewController = rootNavigation;
     [self.window makeKeyAndVisible];
     return YES;
 }

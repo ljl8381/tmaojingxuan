@@ -30,7 +30,7 @@
 #import "NSString+URLEncoding.h"
 #import "JSON.h"
 #import "Reachability.h"
-#import "FGHeader.h"
+#import "TSHeader.h"
 
 @implementation SHKTencent
 

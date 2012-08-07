@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TSEngine.h"
 @interface TSAppDelegate : UIResponder <UIApplicationDelegate>
 {
 
-
+    TSEngine        *_tsEngine;
 }
 
 @property (strong, nonatomic) UIWindow *window;
-
+@property (strong, nonatomic) TSEngine *tsEngine;
 @end

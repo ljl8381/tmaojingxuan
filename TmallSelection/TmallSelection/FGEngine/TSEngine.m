@@ -7,19 +7,12 @@
 //
 
 #import "TSEngine.h"
-#import "AlbumViewController.h"
-#import "CategoryViewController.h"
-#import "FreeViewController.h"
-#import "GameDetailView.h"
 #import "FGBarButton.h"
 #import "Color+Hex.h"
-#import "ShareViewController.h"
-#import "SHKItem.h"
-#import "SHKRenRen.h"
-#import "SHKSina.h"
-#import "SHKTencent.h"
-#import "Flurry.h"
-
+#import "TmallSelectionViewController.h"
+#import "BeautySelectionViewController.h"
+#import "MyCollectionViewController.h"
+#import "BrandViewController.h"
 
 #define kTabButtonFontSize				8
 #define kTabButtonTitleOffsetY			18
@@ -36,16 +29,17 @@
 
 @implementation TSEngine
 
-@synthesize fgTabController = _fgTabController;
+
+@synthesize tsTabController = _tsTabController;
 
 - (id)init
 {
     self = [super init];
     if (self)
     {
-        _fgTabController = [[TabController alloc]init];
-        _fgTabController.fgDataSource=self;
-        _fgTabController.fgDelegate =self;
+        _tsTabController = [[TabController alloc]init];
+        _tsTabController.fgDataSource=self;
+        _tsTabController.fgDelegate =self;
         _fgHttpObject = [[TSHttpObject alloc]init];
         _fgHttpObject.gDelegate = self;
     }
@@ -57,7 +51,6 @@
 
 - (void)dealloc
 {
-    [_mainController release];
 	[super dealloc];
 }
 
@@ -78,10 +71,8 @@
                            NSLocalizedString(@"TabbarFreeButtonImageHilight", nil), 
                            NSLocalizedString(@"TabbarCategoryButtonImage", nil),
                            NSLocalizedString(@"TabbarCategoryButtonImageHilight", nil),
-                           NSLocalizedString(@"TabbarMoreButtonImage", nil),
-                           NSLocalizedString(@"TabbarMoreButtonImageHilight", nil), 
                            nil];
-    NSArray *array = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Suggestion", nil),NSLocalizedString(@"Album", nil), NSLocalizedString(@"Free", nil), NSLocalizedString(@"Category", nil), NSLocalizedString(@"More", nil), nil];    
+    NSArray *array = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Suggestion", nil),NSLocalizedString(@"Album", nil), NSLocalizedString(@"Free", nil), NSLocalizedString(@"Category", nil), nil];    
     NSUInteger arrayCount = [imageArray count]/2 + [imageArray count]%2;
     
     for (int i = 0; i < arrayCount; ++i)
@@ -124,7 +115,7 @@
         [tabButton setNormalBackgroundImageFile:normalBackgroundImageFile withHighlightedBackgroundImageFile:highlightedBackgroundImageFile];
         
         // Get the button width
-        NSUInteger buttonWidth = tabButton.frame.size.width;
+        NSUInteger buttonWidth = 80;
         
         
         // Reset the button frame
@@ -144,158 +135,39 @@
 - (void)loadTabBarViewControllers:(NSMutableArray *)controllersArray
 {
     TRACE(@"begin");
-    //首页
-	MainViewController *mainViewController=[[MainViewController alloc] init];
-    mainViewController.gDelegate = self;
-    mainViewController.srDelegate = self;
-    [controllersArray addObject:mainViewController];
-    _mainController =[mainViewController retain];
-    [mainViewController release];
-  
+    //品牌特卖
+	BrandViewController *brandViewController=[[BrandViewController alloc] init];
+//    mainViewController.gDelegate = self;
+//    mainViewController.srDelegate = self;
+    [controllersArray addObject:brandViewController];
+    [brandViewController release];
     
-    //专辑
-	AlbumViewController *albumViewController=[[AlbumViewController alloc] init];
-    albumViewController.alDelegate = self;
-    albumViewController.srDelegate = self;
-    [controllersArray addObject:albumViewController];
-    [albumViewController release];
-    
-    
-    //热门限免
-    FreeViewController *freeViewController=[[FreeViewController alloc] init];
-    freeViewController.fDelegate = self;
-    freeViewController.srDelegate = self;
-    [controllersArray addObject:freeViewController];
-    [freeViewController release];
-    
-    //个人主页
-    CategoryViewController *categoryViewController=[[CategoryViewController alloc] init];
-    categoryViewController.gDelegate = self;
-    categoryViewController.srDelegate = self;
-    [controllersArray addObject:categoryViewController];
-    [categoryViewController release];
-    
-    //更多
-    MoreViewController *moreViewController=[[MoreViewController alloc] init];
-    moreViewController.gDelegate = self;
-    [controllersArray addObject:moreViewController];
-    [moreViewController release];
+    TmallSelectionViewController *tmallSelectionViewController=[[TmallSelectionViewController alloc] init];
+    //    mainViewController.gDelegate = self;
+    //    mainViewController.srDelegate = self;
+    [controllersArray addObject:tmallSelectionViewController];
+    [tmallSelectionViewController release];
+
+    BeautySelectionViewController *beautySelectionViewController=[[BeautySelectionViewController alloc] init];
+    //    mainViewController.gDelegate = self;
+    //    mainViewController.srDelegate = self;
+    [controllersArray addObject:beautySelectionViewController];
+    [beautySelectionViewController release];
+
+    MyCollectionViewController *myCollectionViewController=[[MyCollectionViewController alloc] init];
+    //    mainViewController.gDelegate = self;
+    //    mainViewController.srDelegate = self;
+    [controllersArray addObject:myCollectionViewController];
+    [myCollectionViewController release];
+
+
     
 }
-//跳转到搜索页面
-- (void)showSearchPage:(UIViewController *)aViewController{
-    
-    TRACE(@"跳转到搜索页面");
-    [self reportEvent:@"首跳转到搜索页" withParameters:nil];
-    SearchViewController *_searchPageController  = [[SearchViewController alloc]init];
-    _searchPageController.sDelegate = self;
-    [aViewController.navigationController  pushViewController:_searchPageController animated:YES]; 
-    [_searchPageController release];
-}
-
-//跳转到详细页面
-- (void)showDetialPage:(UIViewController *)supperViewController WithObjc:(FGCellObject *)clObjc
-{
-
-    TRACE(@"跳转到详细页面,supperViewcontroller=%@",[supperViewController class]);
-    [self reportEvent:[NSString stringWithFormat:@"%@页跳转到详情",[supperViewController class]] withParameters:nil];
-    GameDetailView *_gameDetialView = [[GameDetailView alloc]init];
-    _gameDetialView.clObjc = clObjc;
-    TRACE(@"==========下载地址%@",clObjc.gameUrl);
-    _gameDetialView.navigationItem.hidesBackButton = NO;
-    _gameDetialView.dDelegate = self;
-    [supperViewController.navigationController pushViewController:_gameDetialView animated:YES];
-    [_gameDetialView release];
-    //请求详细页数据  
-     TRACE(@"clObjc.gameID=%i", clObjc.gameID);
-    [_fgHttpObject requestDetialPageData:[NSString stringWithFormat:@"%i", clObjc.gameID]];
-}
-//分享到不同微博
-- (void)shareGame:(UIViewController *)supperViewController andIndex:(NSInteger)buttonIndex gameObject:(FGDetialPageObject *)dtlDataObjc
-{
-    ShareViewController *shareView = [[ShareViewController alloc]init];
-    shareView.gDelegate = self;
-    shareView.index = buttonIndex;
-    shareView.gameUrl = dtlDataObjc.dtlGameDownLoadURL;
-    shareView.gameName = dtlDataObjc.dtlGameName;
-    [supperViewController.navigationController pushViewController:shareView animated:YES];
-    [shareView release];
-
-}
-
- -(void)shareGame:(NSInteger)index andText:(NSString *)text
-{
-    SHKItem *item =  [SHKItem text:text];
-    switch (index)
-    {
-        case renren_net:
-        {
-            [SHKRenRen shareItem:item];
-        }
-            break;
-        case sina_webo:
-        {
-            [SHKSina shareItem:item];
-        }
-            break;
-        case tencent_weibo:
-        {
-            [SHKTencent shareItem:item];
-        }
-            break;
-        default:
-            break;
-    }
-
-}
-
-//跳转到iTunes下载页面并报告下载事件
-- (void)ToDownLoadPage:(NSString *)urlString withID:(NSString *)gameID
-{
-    TRACE(@"跳转到iTunes下载页面%@",urlString);
-    if(urlString)
-    {
-        
-        NSURL *downloadUrl =[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-        if(downloadUrl && [[UIApplication sharedApplication] canOpenURL:downloadUrl])
-        {
-            [[UIApplication sharedApplication] openURL:downloadUrl];
-            TRACE(@"跳转到iTunes下载页面");
-
-        }
-    }
-    if (gameID) {
-        TRACE(@"报告下载事件");
-        [self reportEvent:@"跳转到itunes" withParameters:nil];
-        [_fgHttpObject reportDownloadAction:gameID];
-    }
-}
-//回退到主页面
-- (void)BackToHomePage:(UIViewController *)viewController
-{
-    [self reportEvent:[NSString stringWithFormat:@"%@页跳回到主页",[viewController class]] withParameters:nil];
-    [viewController.navigationController popToRootViewControllerAnimated:YES];
-    
-}
-
-//评价游戏
-- (void)evaluateTheGame:(BOOL)goodOrBadEvalute withGameId:(NSString *)gameId
-{
-    
-    [_fgHttpObject evaluateTheGame:goodOrBadEvalute withGameId:gameId];
-}
-
 //取消之前请求
 -(void)removeRequest:(request_Type)type
 {
     [_fgHttpObject removeRequest:type];
 }
 
--(void)reportEvent:(NSString *)event withParameters:(NSDictionary *)paraDic
-{
-#ifdef DATA_ANALYZE_OPEN
-    [Flurry logEvent:event withParameters:paraDic];
-#endif
-}
 
 @end

@@ -10,7 +10,6 @@
 #import "FGImageView.h"
 #import "UITableView+LazyLoading.h"
 #import "FGTableCell.h"
-#import "FGAlbumTableViewCell.h"
 
 @implementation FGtableView
 
@@ -37,14 +36,6 @@
         if (self.dragging == NO && self.decelerating == NO)
         {
             ((FGTableCell *)cell).gameIcon.url = url; 
-        }
-    }
-    else if ([cell isKindOfClass:[FGAlbumTableViewCell class]]) 
-    {
-        [((FGAlbumTableViewCell *)cell).albumIcon imageForUrl:url];
-        if (self.dragging == NO && self.decelerating == NO)
-        {
-            ((FGAlbumTableViewCell *)cell).albumIcon.url = url; 
         }
     }
     else
@@ -74,12 +65,6 @@
         {
             if (_lDelegate) {
                 ((FGTableCell *)cell).gameIcon.url = [_lDelegate lazyImageURLForIndexPath:indexPath];
-            }
-        }
-        else  if ([cell isKindOfClass:[FGAlbumTableViewCell class]]) 
-        {
-            if (_lDelegate) {
-                ((FGAlbumTableViewCell *)cell).albumIcon.url = [_lDelegate lazyImageURLForIndexPath:indexPath];
             }
         }
         else

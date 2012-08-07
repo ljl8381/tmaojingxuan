@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HeartView.h"
 #import "FGImageView.h"
 
 @protocol cellDelegate;
@@ -18,7 +17,6 @@
     UILabel         *_gameName;
     UILabel         *_gameIntroduction;
     UILabel         *_gameCategory;
-    HeartView       *_heartView;
     UILabel         *_gameSize;
     UILabel         *_languageString;
     UILabel         *_gamePrice;
@@ -39,7 +37,6 @@
 @property (nonatomic, retain)UILabel         *gameName;
 @property (nonatomic, retain)UILabel      *gameIntroduction;
 @property (nonatomic, retain)UILabel         *gameCategory;
-@property (nonatomic, retain)HeartView       *heartView;
 @property (nonatomic, retain)UILabel         *gameSize;
 @property (nonatomic, retain)UILabel         *languageString;
 @property (nonatomic, retain)UILabel         *gamePrice;
