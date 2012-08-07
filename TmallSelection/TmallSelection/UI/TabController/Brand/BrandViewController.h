@@ -8,6 +8,6 @@
 
 #import "TSViewController.h"
 
-@interface BrandViewController : TSViewController
+@interface BrandViewController : TSViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

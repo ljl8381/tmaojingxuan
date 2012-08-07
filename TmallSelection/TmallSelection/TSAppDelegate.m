@@ -31,6 +31,18 @@
     
     UINavigationController *rootNavigation = [[UINavigationController alloc] initWithRootViewController:self.tsEngine.tsTabController];
     self.window.rootViewController = rootNavigation;
+    if (IOS5) 
+    {
+        
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"head_bg.png"] forBarMetrics:UIBarMetricsDefault];
+//        [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"head_bg.png"]]];
+        
+    }
+    UIBarButtonItem *back =[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@""] style:UIBarButtonItemStylePlain target:self action:@selector(back)];
+    [rootNavigation.navigationItem setBackBarButtonItem: back];
+    [back release];
+
+    
     [self.window makeKeyAndVisible];
     return YES;
 }

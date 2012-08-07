@@ -40,7 +40,7 @@
 #define MORE_DATA_NOTIFICATION                     @"MORE_DATA_NOTIFICATION"            //更多页通知
 #define EVALUATE_DATA_NOTIFICATION                 @"EVALUATE_DATA_NOTIFICATION"         //评价结果
 #define SHARE_SUCCESS_NOTIFICATION                 @"SHARE_SUCCESS_NOTIFICATION"         //评价结果
-#define WEIBO_NOTIFICATION                         @"WEIBO_NOTIFICATIO"                 //微博授权通知
+
 #define GAME_ICON                       [UIImage imageNamed:@"default_pic.png"]
 #define GAME_ICON_FRAME                 CGRectMake(20.5, 26.5, 57 , 57)
 #define REMMEND_IMG_ONE                 @"image_item_star_off.png"

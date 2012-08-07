@@ -74,10 +74,10 @@
     
     
     // Create the background image view
-    _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 366, SCREEN_WIDTH, kDefaultTabBarheight)];
+    _backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 434, SCREEN_WIDTH, 46)];
     _backgroundImageView.backgroundColor = [UIColor clearColor];
 	_backgroundImageView.userInteractionEnabled = YES;
-    
+    _backgroundImageView.tag = 1001;
 	// Add the background view to window
 	[self.view addSubview:_backgroundImageView];
     

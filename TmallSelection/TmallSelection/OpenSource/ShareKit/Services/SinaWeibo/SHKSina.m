@@ -155,7 +155,7 @@
 {
     TRACE(@"");
     //注册通知，确保注册成功后reload view
-    [[NSNotificationCenter defaultCenter] postNotificationName:WEIBO_NOTIFICATION  object:nil userInfo:nil];
+  //  [[NSNotificationCenter defaultCenter] postNotificationName:WEIBO_NOTIFICATION  object:nil userInfo:nil];
     [self send];
 }
 

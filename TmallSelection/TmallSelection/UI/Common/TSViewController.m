@@ -51,7 +51,20 @@
     [super viewWillAppear:animated];
     [self hideOriNaviReturnBtn];
     [self.navigationController.navigationBar addSubview:_backButton];
-
+    if (self.toolbarItems.count == 0) {
+        [self.navigationController setToolbarHidden:YES animated:animated];
+    }
+}
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    if (self.toolbarItems.count > 0) {
+        [self.navigationController setToolbarHidden:NO animated:animated];
+    }
+    
+    // set on viewDidAppear, if using tabBarController
+    [_fullScreenDelegate layoutTabBarController];
 }
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
@@ -62,12 +75,15 @@
     {
         _backButton = [FGBarButton buttonWithType:UIButtonTypeCustom];
         [_backButton setFrame:CGRectMake(0, 0,50, 44)];
+        [_backButton setTitle:@"nimei" forState:UIControlStateNormal];
         [_backButton setNormalBackgroundImage: [UIImage imageNamed:@"images_icon_back.png"]withHighlightedBackgroundImage:[UIImage imageNamed:@"images_icon_back_pressed.png"]];
         [_backButton addTarget:self action:@selector(backButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [_backButton retain];
-        _backButton.hidden = YES;
+       // _backButton.hidden = YES;
         //[self.navigationController.navigationBar addSubview:_backButton];
     }
+    
+    self.navigationController.title = @"nimei";
     _errorButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _errorButton.frame = CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height);
     _errorButton.backgroundColor = [UIColor clearColor];
@@ -87,7 +103,7 @@
     [titleLabel release];
     [_errorButton addTarget:self action:@selector(reloadNetwork) forControlEvents:UIControlEventTouchUpInside];
     [_errorButton retain];
-    _errorButton.hidden = YES;
+    //_errorButton.hidden = YES;
     UIImageView  *backgroundImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
     backgroundImageView.image = [UIImage imageNamed:@"images_body_background.png"];
     [self.view addSubview:backgroundImageView];

@@ -27,7 +27,7 @@
         self.enabled = YES;
         self.shouldShowUIBarsOnScrollUp = YES;
         
-        viewController.navigationController.navigationBar.translucent = YES;
+        //viewController.navigationController.navigationBar.translucent = YES;
         viewController.navigationController.toolbar.translucent = YES;
         _viewController = viewController;
     }
@@ -37,7 +37,6 @@
 - (void)_layoutWithScrollView:(UIScrollView*)scrollView deltaY:(CGFloat)deltaY
 {
     if (!self.enabled) return;
-    
     // navbar
     UINavigationBar* navBar = _viewController.navigationController.navigationBar;
     BOOL isNavBarExisting = navBar && navBar.superview && !navBar.hidden;
@@ -73,6 +72,23 @@
         }
         tabBar.top = MIN(MAX(tabBar.top+deltaY, tabBarSuperviewHeight-tabBar.height), tabBarSuperviewHeight);
     }
+    UITabBarController *tabcontroller =  _viewController.tabBarController;
+    UIView *tabView;
+    if (tabcontroller) {
+        UIView *tab =  [tabcontroller.view viewWithTag:1001];
+        //rtab.top = 366+deltaY;
+        if ([tab.superview.superview isKindOfClass:[UIWindow class]]) {
+            tabBarSuperviewHeight = IS_PORTRAIT ? tab.superview.height : tab.superview.width;
+        }
+        else {
+            tabBarSuperviewHeight = tab.superview.height;
+        }
+        tab.top = MIN(MAX(tab.top+deltaY, tabBarSuperviewHeight-tab.height), tabBarSuperviewHeight);
+        tabView = tab;
+        //tabcontroller.view.frame = CGRectMake(0, 440+deltaY, 320, 44);
+    }
+    
+    
     
     // scrollIndicatorInsets
     UIEdgeInsets insets = scrollView.scrollIndicatorInsets;
@@ -83,8 +99,8 @@
     if (isToolbarExisting) {
         insets.bottom += toolbarSuperviewHeight-toolbar.top;
     }
-    if (isTabBarExisting) {
-        insets.bottom += tabBarSuperviewHeight-tabBar.top;
+    if (tabcontroller) {
+        insets.bottom += tabBarSuperviewHeight-tabView.top;
     }
     scrollView.scrollIndicatorInsets = insets;
 }
@@ -102,7 +118,7 @@
 - (void)showUIBarsWithScrollView:(UIScrollView*)scrollView animated:(BOOL)animated
 {
     [UIView animateWithDuration:(animated ? 0.1 : 0) animations:^{
-        [self _layoutWithScrollView:scrollView deltaY:-50];
+        [self _layoutWithScrollView:scrollView deltaY:-46];
     }];
 }
 
