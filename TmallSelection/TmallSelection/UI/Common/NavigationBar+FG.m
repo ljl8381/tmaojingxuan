@@ -39,13 +39,13 @@
 - (void)drawRect:(CGRect)rect
 {
     
-	self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"head_bg.png"]];
+//	self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"head_bg.png"]];
     
 	//The background image
-//	UIImage *backgroundImage = nil;     
-//	backgroundImage = [UIImage imageNamed:kDefaultBackgroundImageFile];
-//	// Draw the background image
-//	[backgroundImage drawInRect:kDefaultBarFrame];
+	UIImage *backgroundImage = nil;     
+	backgroundImage = [UIImage imageNamed:@"tittle_bg.png"];
+	// Draw the background image
+	[backgroundImage drawInRect:kDefaultBarFrame];
 
 }
 

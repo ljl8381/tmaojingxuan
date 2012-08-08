@@ -15,14 +15,14 @@
 #import "BrandViewController.h"
 
 #define kTabButtonFontSize				8
-#define kTabButtonTitleOffsetY			18
+#define kTabButtonTitleOffsetY			14
 #define kTabButtonOffsetX				0
 #define kTabButtonOffsetY				-10
-#define kTabButtonFontColor				0xFF828282
-#define kTabButtonFontHighlightColor	0xFFFFFFFF
+#define kTabButtonFontColor				0xFFc0c0c0
+#define kTabButtonFontHighlightColor	0xFF7dab95
 
 #define kTabBarVCenter					20
-#define kDefaultTabBarheight			60
+#define kDefaultTabBarheight			46
 #define kDefaultNaviBarheight			60
 #define kDefaultApplicationScreenheight 460
 
@@ -63,16 +63,10 @@
 
 {   
     NSArray *imageArray = [NSArray arrayWithObjects:
-                           NSLocalizedString(@"TabbarSuggestionButtonImage", nil),
-                           NSLocalizedString(@"TabbarSuggestionButtonImageHilight", nil),
-                           NSLocalizedString(@"TabbarAlbumButtonImage", nil), 
-                           NSLocalizedString(@"TabbarAlbumButtonImageHilight", nil), 
-                           NSLocalizedString(@"TabbarFreeButtonImage", nil),
-                           NSLocalizedString(@"TabbarFreeButtonImageHilight", nil), 
-                           NSLocalizedString(@"TabbarCategoryButtonImage", nil),
-                           NSLocalizedString(@"TabbarCategoryButtonImageHilight", nil),
+                          @"menu_1.png",@"menu_1_sel.png",@"menu_2.png",@"menu_2_sel.png",
+                           @"menu_3.png",@"menu_3_sel.png",@"menu_4.png",@"menu_4_sel.png",
                            nil];
-    NSArray *array = [[NSArray alloc] initWithObjects:NSLocalizedString(@"Suggestion", nil),NSLocalizedString(@"Album", nil), NSLocalizedString(@"Free", nil), NSLocalizedString(@"Category", nil), nil];    
+    NSArray *array = [[NSArray alloc] initWithObjects:NSLocalizedString(@"品牌特卖", nil),NSLocalizedString(@"美妆精品", nil), NSLocalizedString(@"天猫精选", nil), NSLocalizedString(@"我的收藏", nil), nil];    
     NSUInteger arrayCount = [imageArray count]/2 + [imageArray count]%2;
     
     for (int i = 0; i < arrayCount; ++i)
@@ -83,9 +77,9 @@
         // Set the title string color
         tabButton.offsetY = kTabButtonTitleOffsetY;
         [tabButton setNormalTextColor:[UIColor  colorWithHex:kTabButtonFontColor] highlightedTextColor:[UIColor  colorWithHex:kTabButtonFontHighlightColor] ];
-        [tabButton setTitleShadowColor:[UIColor colorWithHex:0x80808] forState:UIControlStateNormal];
+        //[tabButton setTitleShadowColor:[UIColor colorWithHex:0x80808] forState:UIControlStateNormal];
         // Set the title string and font size
-        [tabButton setFontSize:kTabButtonFontSize withBolded:YES];
+        [tabButton setFontSize:kTabButtonFontSize withBolded:NO];
         
         // Set the tag to separate the buttons
         tabButton.tag = i;

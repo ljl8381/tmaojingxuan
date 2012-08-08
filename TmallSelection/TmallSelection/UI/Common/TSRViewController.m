@@ -155,7 +155,7 @@
             tab.top = 480;
         }
         else
-            tab.top = 366;
+            tab.top = 373;
         }
     [UIView commitAnimations];
 }

@@ -47,7 +47,7 @@
     
     if (!self.enabled) return;
     [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationDuration:0.3];
     // navbar
     UINavigationBar* navBar = _viewController.navigationController.navigationBar;
     BOOL isNavBarExisting = navBar && navBar.superview && !navBar.hidden;
@@ -102,7 +102,7 @@
         if (deltaY<=0) {
             navBar.top = 20;
             _viewController.navigationController.navigationBar.translucent = NO;
-            tab.top=366;
+            tab.top=373;
         }
         else
         {

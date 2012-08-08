@@ -83,7 +83,6 @@
         //[self.navigationController.navigationBar addSubview:_backButton];
     }
     
-    self.navigationController.title = @"nimei";
     _errorButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _errorButton.frame = CGRectMake(0, 60, self.view.bounds.size.width, self.view.bounds.size.height);
     _errorButton.backgroundColor = [UIColor clearColor];

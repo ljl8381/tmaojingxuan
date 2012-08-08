@@ -34,7 +34,7 @@
     if (IOS5) 
     {
         
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"head_bg.png"] forBarMetrics:UIBarMetricsDefault];
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"tittle_bg.png"] forBarMetrics:UIBarMetricsDefault];
 //        [[UINavigationBar appearance] setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"head_bg.png"]]];
         
     }
