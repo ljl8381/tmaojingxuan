@@ -47,6 +47,7 @@
 		063DA8ED15D00FA600E211D8 /* UIProgressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 063DA87B15D00FA600E211D8 /* UIProgressBar.m */; };
 		063DA8EE15D00FA600E211D8 /* UITableView+LazyLoading.m in Sources */ = {isa = PBXBuildFile; fileRef = 063DA87D15D00FA600E211D8 /* UITableView+LazyLoading.m */; };
 		063DA8F615D01E0200E211D8 /* ASI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 063DA8F515D01E0200E211D8 /* ASI.framework */; };
+		063DA91D15D2AFAC00E211D8 /* TSRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 063DA91C15D2AFAC00E211D8 /* TSRViewController.m */; };
 		067E984715D0E68F008A2269 /* SHK.m in Sources */ = {isa = PBXBuildFile; fileRef = 067E97B115D0E68F008A2269 /* SHK.m */; };
 		067E984815D0E68F008A2269 /* SHKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 067E97B315D0E68F008A2269 /* SHKItem.m */; };
 		067E984915D0E68F008A2269 /* SHKSharer.m in Sources */ = {isa = PBXBuildFile; fileRef = 067E97B515D0E68F008A2269 /* SHKSharer.m */; };
@@ -239,6 +240,8 @@
 		063DA87D15D00FA600E211D8 /* UITableView+LazyLoading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+LazyLoading.m"; sourceTree = "<group>"; };
 		063DA8F415D0103800E211D8 /* TSHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSHeader.h; sourceTree = "<group>"; };
 		063DA8F515D01E0200E211D8 /* ASI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ASI.framework; sourceTree = "<group>"; };
+		063DA91B15D2AFAC00E211D8 /* TSRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSRViewController.h; sourceTree = "<group>"; };
+		063DA91C15D2AFAC00E211D8 /* TSRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSRViewController.m; sourceTree = "<group>"; };
 		067E97B015D0E68F008A2269 /* SHK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHK.h; sourceTree = "<group>"; };
 		067E97B115D0E68F008A2269 /* SHK.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHK.m; sourceTree = "<group>"; };
 		067E97B215D0E68F008A2269 /* SHKItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKItem.h; sourceTree = "<group>"; };
@@ -640,6 +643,8 @@
 				063DA87B15D00FA600E211D8 /* UIProgressBar.m */,
 				063DA87C15D00FA600E211D8 /* UITableView+LazyLoading.h */,
 				063DA87D15D00FA600E211D8 /* UITableView+LazyLoading.m */,
+				063DA91B15D2AFAC00E211D8 /* TSRViewController.h */,
+				063DA91C15D2AFAC00E211D8 /* TSRViewController.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1300,6 +1305,7 @@
 				067E98C115D0EB56008A2269 /* BrandViewController.m in Sources */,
 				067E98C415D0EB61008A2269 /* MyCollectionViewController.m in Sources */,
 				067E98C715D0EB6A008A2269 /* TmallSelectionViewController.m in Sources */,
+				063DA91D15D2AFAC00E211D8 /* TSRViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

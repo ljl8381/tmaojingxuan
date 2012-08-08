@@ -8,7 +8,7 @@
 
 #import "TSViewController.h"
 #import "EGORefreshTableHeaderView.h"
-
+#import "TSRViewController.h"
 @interface BrandViewController : TSViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate>
 
 {

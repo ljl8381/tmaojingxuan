@@ -30,6 +30,8 @@
     UITableView  *set = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     set.delegate=self;
     set.dataSource = self;
+    // viewController.navigationController.navigationBar.translucent = YES;
+    self.navigationController.toolbar.translucent = YES;
     if (!_refreshHeaderView ) 
     {  
         _refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0-set.bounds.size.height, self.view.frame.size.width, set.bounds.size.height)];  
