@@ -7,7 +7,7 @@
 //
 
 #import "TmallSelectionViewController.h"
-
+#import "ItemButton.h"
 @interface TmallSelectionViewController ()
 
 @end
@@ -23,6 +23,13 @@
     return self;
 }
 
+-(void)loadView
+{
+    [super loadView];
+    ItemButton *button1 = [[ItemButton alloc]initWithFrame:CGRectMake(50, 50, 101, 102)];
+    [self.view addSubview:button1];
+    self.view.backgroundColor = [UIColor blueColor];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
