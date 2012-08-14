@@ -88,7 +88,7 @@
         
         
         _gameID = [[NSString alloc]init];
-        _gameIcon = [[FGImageView alloc]initWithFrame:GAME_ICON_FRAME];
+        _gameIcon = [[TSImageView alloc]initWithFrame:GAME_ICON_FRAME];
         [_gameIcon setDefaultFile:@"default_pic.png"];
         _gameIcon.userInteractionEnabled = NO;
         [self insertSubview:_gameIcon atIndex:1];

@@ -7,7 +7,7 @@
 //
 
 #import "FGtableView.h"
-#import "FGImageView.h"
+#import "TSImageView.h"
 #import "UITableView+LazyLoading.h"
 #import "FGTableCell.h"
 
@@ -43,12 +43,12 @@
         for (int i = 0; i < [cell.subviews count]; i++) 
         {           
             id subview = [cell.subviews objectAtIndex:i];     
-            if( [subview isKindOfClass:FGImageView.class])
+            if( [subview isKindOfClass:TSImageView.class])
             {   
-                [((FGImageView *)subview) imageForUrl:url];
+                [((TSImageView *)subview) imageForUrl:url];
                 if (self.dragging == NO && self.decelerating == NO)
                     
-                    ((FGImageView *)subview).url = url; 
+                    ((TSImageView *)subview).url = url; 
                 
             }
         }
@@ -72,10 +72,10 @@
             for (int i = 0; i < [cell.subviews count]; i++) 
             {           
                 id subview = [cell.subviews objectAtIndex:i];     
-                if( [subview isKindOfClass:FGImageView.class])
+                if( [subview isKindOfClass:TSImageView.class])
                 {   
                     if (_lDelegate) {
-                        ((FGImageView *)subview).url = [_lDelegate lazyImageURLForIndexPath:indexPath];
+                        ((TSImageView *)subview).url = [_lDelegate lazyImageURLForIndexPath:indexPath];
                     }
                 }
             }

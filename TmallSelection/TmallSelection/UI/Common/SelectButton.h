@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FGImageView.h"
+#import "TSImageView.h"
 @interface SelectButton : UIView
 {
-    FGImageView  *icon;
+    TSImageView  *icon;
 
 }
 

@@ -20,7 +20,7 @@
 }
 
 @property (nonatomic,retain)FGBarButton     *backButton;
-@property (nonatomic,assign)id  srDelegate;
+
 
 //重新请求数据
 -(void)reloadNetwork;

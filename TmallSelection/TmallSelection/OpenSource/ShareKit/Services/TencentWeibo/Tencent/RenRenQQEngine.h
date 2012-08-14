@@ -113,6 +113,7 @@
 - (void)sendWeiBoWithText:(NSString *)text image:(UIImage *)image;
 
 //-(void)authorize;
+- (void)sendStatus:(NSString *)msgSend;
 
 -(void)getAccessTokenFresh:(BOOL)refresh;
 

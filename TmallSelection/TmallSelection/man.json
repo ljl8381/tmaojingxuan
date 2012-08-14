@@ -1,0 +1,49 @@
+{
+    "info": [
+               {
+            "image": "man_001.png",
+            "title": "男装",
+            "ID": 10
+        },
+        {
+            "image": "man_002.png",
+            "title": "男鞋",
+            "ID": 10
+        },
+        {
+            "image": "man_003.png",
+            "title": "休闲",
+            "ID": 10
+        },
+        {
+            "image": "man_004.png",
+            "title": "3C数码配件",
+            "ID": 10
+        },
+        {
+            "image": "man_005.png",
+            "title": "箱包",
+            "ID": 10
+        },
+        {
+            "image": "man_006.png",
+            "title": "饰品",
+            "ID": 10
+        },
+        {
+            "image": "man_007.png",
+            "title": "运动",
+            "ID": 10
+        },
+        {
+            "image": "man_008.png",
+            "title": "户外",
+            "ID": 10
+        },
+	  {
+            "image": "man_009.png",
+            "title": "汽车用品",
+            "ID": 10
+        } 
+    ]
+}

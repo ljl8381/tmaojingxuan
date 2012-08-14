@@ -13,7 +13,7 @@
 @protocol imageClickDelegate;
 @protocol ShowGameImageDelegate;
 
-@interface FGImageView : UIImageView 
+@interface TSImageView : UIImageView 
 {
     NSString            *_url;
     ASIHTTPRequest      *_request;
@@ -37,15 +37,16 @@
 -(void)imageForUrl:url;
 - (void)setCornerRadiusForImage:(float)cornerRadius;
 - (void) downloadImage:(NSString *)imageURL;
+- (void) cancelDownload;
 @end
 
 @protocol imageClickDelegate <NSObject>
 
 @optional
--(void)imageSingleTap:(FGImageView *)sender;
+-(void)imageSingleTap:(TSImageView *)sender;
 
 @end
 
 @protocol ShowGameImageDelegate <NSObject>
-- (void)showGameImages:(FGImageView *)touchImg;
+- (void)showGameImages:(TSImageView *)touchImg;
 @end

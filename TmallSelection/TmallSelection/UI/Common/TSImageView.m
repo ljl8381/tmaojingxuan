@@ -6,7 +6,7 @@
 //  Copyright 2011 FZXY. All rights reserved.
 //
 
-#import "FGImageView.h"
+#import "TSImageView.h"
 
 #import <ASI/ASIHTTPRequest.h>
 #import <ASI/ASINetworkQueue.h>
@@ -14,7 +14,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "FullyLoaded.h"
 
-@implementation FGImageView
+@implementation TSImageView
 
 @synthesize url = _url;
 @synthesize request = _request;
@@ -133,7 +133,7 @@
     _defaultFile = [[NSString alloc] initWithString:defaultFile];
     self.image = [UIImage imageNamed:defaultFile];
 }
--(void)imageSingleTap:(FGImageView *)sender
+-(void)imageSingleTap:(TSImageView *)sender
 
 {
     //

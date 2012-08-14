@@ -29,6 +29,8 @@
         _tsEngine = [[TSEngine alloc] init];
     }
     
+    [UIApplication sharedApplication].statusBarHidden = NO;
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleBlackOpaque;//设置顶部状态栏样式
     UINavigationController *rootNavigation = [[UINavigationController alloc] initWithRootViewController:self.tsEngine.tsTabController];
     self.window.rootViewController = rootNavigation;
     if (IOS5) 

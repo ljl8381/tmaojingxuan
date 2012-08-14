@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FGImageView.h"
+#import "TSImageView.h"
 
 @protocol cellDelegate;
 @interface FGTableCell : UITableViewCell
 {
     NSString        *_gameID;
-    FGImageView     *_gameIcon;
+    TSImageView     *_gameIcon;
     UILabel         *_gameName;
     UILabel         *_gameIntroduction;
     UILabel         *_gameCategory;
@@ -32,7 +32,7 @@
     id<cellDelegate>_clDelegate;
 }
 @property (nonatomic ,copy)NSString          *gameID;
-@property (nonatomic ,retain)FGImageView     *gameIcon;
+@property (nonatomic ,retain)TSImageView     *gameIcon;
 @property (nonatomic, assign)id              clDelegate;
 @property (nonatomic, retain)UILabel         *gameName;
 @property (nonatomic, retain)UILabel      *gameIntroduction;

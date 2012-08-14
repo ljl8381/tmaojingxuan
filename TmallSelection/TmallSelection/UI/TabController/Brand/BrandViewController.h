@@ -7,12 +7,17 @@
 //
 
 #import "TSViewController.h"
-#import "EGORefreshTableHeaderView.h"
-@interface BrandViewController : TSViewController<UITableViewDataSource,UITableViewDelegate,EGORefreshTableHeaderDelegate>
-
+#import "customBrandView.h"
+#import "SVSegmentedControl.h"
+#import "ItemButton.h"
+#import "TSCateObject.h"
+@interface BrandViewController : TSViewController<SVSegmentedControlDelegate,itemButtonClickDelegate>
 {
-    EGORefreshTableHeaderView *_refreshHeaderView;
-    BOOL                        _reloading;
 
+    customBrandView              *_manView;
+    customBrandView              *_womanView;
+    TSCateObject                 *_cateObj;
 }
+
+
 @end

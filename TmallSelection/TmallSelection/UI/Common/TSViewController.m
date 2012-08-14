@@ -74,12 +74,15 @@
     if(!_backButton)
     {
         _backButton = [FGBarButton buttonWithType:UIButtonTypeCustom];
-        [_backButton setFrame:CGRectMake(0, 0,50, 44)];
-        [_backButton setTitle:@"nimei" forState:UIControlStateNormal];
-        [_backButton setNormalBackgroundImage: [UIImage imageNamed:@"images_icon_back.png"]withHighlightedBackgroundImage:[UIImage imageNamed:@"images_icon_back_pressed.png"]];
+        [_backButton setFrame:CGRectMake(10, 6,56, 32)];
+        [_backButton setTitle:@"返回" forState:UIControlStateNormal];
+        [_backButton setTitleColor:[UIColor colorWithHex:0xffffffff] forState:UIControlStateNormal];
+        [_backButton setFontSize:14 withBolded:NO];
+        _backButton.offsetX =3;
+        [_backButton setNormalBackgroundImage: [UIImage imageNamed:@"tittle_back_bg.png"]withHighlightedBackgroundImage:[UIImage imageNamed:@"tittle_back_bg_press.png"]];
         [_backButton addTarget:self action:@selector(backButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [_backButton retain];
-       // _backButton.hidden = YES;
+        _backButton.hidden = YES;
         //[self.navigationController.navigationBar addSubview:_backButton];
     }
     
@@ -102,12 +105,11 @@
     [titleLabel release];
     [_errorButton addTarget:self action:@selector(reloadNetwork) forControlEvents:UIControlEventTouchUpInside];
     [_errorButton retain];
-    //_errorButton.hidden = YES;
+    _errorButton.hidden = YES;
     UIImageView  *backgroundImageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
-    backgroundImageView.image = [UIImage imageNamed:@"images_body_background.png"];
+    backgroundImageView.image = [UIImage imageNamed:@"bg.png"];
     [self.view addSubview:backgroundImageView];
     [backgroundImageView release];
-    
 }
 
 

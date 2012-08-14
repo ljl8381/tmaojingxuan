@@ -1,0 +1,70 @@
+{
+    "info": [
+               {
+            "image": "woman_001.png",
+            "title": "女装",
+            "ID": 10
+        },
+        {
+            "image": "woman_002.png",
+            "title": "包包",
+            "ID": 10
+        },
+        {
+            "image": "woman_003.png",
+            "title": "内衣",
+            "ID": 10
+        },
+        {
+            "image": "woman_004.png",
+            "title": "鞋子",
+            "ID": 10
+        },
+        {
+            "image": "woman_005.png",
+            "title": "箱包",
+            "ID": 10
+        },
+        {
+            "image": "woman_006.png",
+            "title": "饰品",
+            "ID": 10
+        },
+        {
+            "image": "woman_007.png",
+            "title": "运动",
+            "ID": 10
+        },
+        {
+            "image": "woman_008.png",
+            "title": "户外",
+            "ID": 10
+        },
+	  {
+            "image": "woman_009.png",
+            "title": "美妆",
+            "ID": 10
+        }
+                {
+            "image": "woman_010.png",
+            "title": "家居",
+            "ID": 10
+        },
+        {
+            "image": "woman_011.png",
+            "title": "家纺",
+            "ID": 10
+        },
+        {
+            "image": "woman_012.png",
+            "title": "母婴",
+            "ID": 10
+        },
+	  {
+            "image": "woman_013.png",
+            "title": "休闲",
+            "ID": 10
+        }  
+    ]
+}
+

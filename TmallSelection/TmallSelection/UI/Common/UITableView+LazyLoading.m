@@ -6,7 +6,7 @@
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
-#import "FGImageView.h"
+#import "TSImageView.h"
 #import "UITableView+LazyLoading.h"
 
 @implementation UITableViewCell (LazyLoading)

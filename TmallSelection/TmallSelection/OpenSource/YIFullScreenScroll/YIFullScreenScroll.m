@@ -45,7 +45,8 @@
 //    }
    // _viewController.navigationController.navigationBar.translucent = YES;
     
-    if (!self.enabled) return;
+    if (!self.enabled) 
+        return;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     // navbar
@@ -96,7 +97,6 @@
         tabBar.top = MIN(MAX(tabBar.top+deltaY, tabBarSuperviewHeight-tabBar.height), tabBarSuperviewHeight);
     }
     UITabBarController *tabcontroller =  _viewController.tabBarController;
-    UIView *tabView;
     if (tabcontroller&&isNavBarExisting) {
         UIView *tab =  [tabcontroller.view viewWithTag:1001];
         if (deltaY<=0) {

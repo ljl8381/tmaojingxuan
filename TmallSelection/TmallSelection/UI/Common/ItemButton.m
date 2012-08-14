@@ -9,28 +9,29 @@
 #import "ItemButton.h"
 #import "Color+Hex.h"
 @implementation ItemButton
-
+@synthesize btnDelegate;
+@synthesize title=_title;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _backgroundButton = [[UIButton alloc]initWithFrame:CGRectMake(4, 4, frame.size.width-8, frame.size.height-8)];
+        _backgroundButton = [[UIButton alloc]initWithFrame:CGRectMake(5, 4, frame.size.width-10, frame.size.height-10)];
         [_backgroundButton addTarget:self action:@selector(buttonClicked) forControlEvents:UIControlEventTouchUpInside];
-        [_backgroundButton setBackgroundImage:[UIImage imageNamed: @"man_001.png"] forState:UIControlStateNormal];
         [self addSubview:_backgroundButton];
-        _titleLabel =[[UILabel alloc]initWithFrame:CGRectMake(4, 5, 30, 24)];
+        _titleLabel =[[UILabel alloc]initWithFrame:CGRectMake(4, 9, 30, 24)];
         _titleLabel.backgroundColor =[UIColor colorWithHex:0x80000000];
+        _titleLabel.textColor=[UIColor colorWithHex:0xFFFFFFFF];
+        _titleLabel.textAlignment=UITextAlignmentCenter;
         [self addSubview:_titleLabel];
-        _titleLabel.text = @"男装";
         _titleLabel.font = [UIFont systemFontOfSize:12];
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
 -(void)dealloc
 {   
-    if (_title) {
-        [_title release];
-    }
+    [_titleLabel release];
+    [_title release];
     if (_backgroundImage) {
         [_backgroundImage release];
     }
@@ -39,12 +40,14 @@
 -(void)setInfoWithDic:(NSDictionary *)infoDic
 {
     
-    _title = [[infoDic objectForKey:@"title"] retain];
-    _backgroundImage = [[infoDic objectForKey:@"image"] retain];
-    [_backgroundButton setBackgroundImage:[UIImage imageNamed: @"man_001.png"] forState:UIControlStateNormal];
+    _titleLabel.text = [infoDic objectForKey:@"title"];
+    CGSize labelSize = [self getSizeWithText:_titleLabel.text withFont:[UIFont systemFontOfSize:12]];
+    _titleLabel.frame = CGRectMake(5, 9, labelSize.width+14, labelSize.height+8);
+    _backgroundImage = [infoDic objectForKey:@"image"];
+    [_backgroundButton setBackgroundImage:[UIImage imageNamed: [infoDic objectForKey:@"image"]] forState:UIControlStateNormal];
     _typeID = [[infoDic objectForKey:@"ID"]intValue];
-    
-    
+    self.tag = [[infoDic objectForKey:@"ID"]intValue];
+    self.title = [infoDic objectForKey:@"title"];
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -53,6 +56,7 @@
 {
     //self.backgroundColor = [UIColor blackColor];
     // Drawing code
+    
     [super drawRect:rect];
     
     [[UIColor clearColor] set];
@@ -67,6 +71,15 @@
 -(void)buttonClicked
 {
     TRACE(@"按钮按动");
+    if (btnDelegate) {
+        [btnDelegate itemButtonClicked:self];
+    }
 }
 
+-(CGSize)getSizeWithText:(NSString *) text withFont:(UIFont *)font
+{
+    CGSize size = CGSizeMake(320, CGFLOAT_MAX);
+    CGSize resultSize = [text sizeWithFont:font constrainedToSize:size lineBreakMode:UILineBreakModeTailTruncation];
+    return resultSize;
+}
 @end

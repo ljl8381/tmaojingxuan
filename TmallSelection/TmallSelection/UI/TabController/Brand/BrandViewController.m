@@ -1,13 +1,16 @@
 //
 //  BrandViewController.m
-//  TmallSelection
+//  ;
 //
 //  Created by ljl on 12-8-7.
 //  Copyright (c) 2012年 __MyCompanyName__. All rights reserved.
 //
 
 #import "BrandViewController.h"
-
+#import "NSString+SBJSON.h"
+#import "ItemButton.h"
+#import "SVSegmentedControl.h"
+#import "brandCateViewController.h"
 @interface BrandViewController ()
 
 @end
@@ -24,23 +27,55 @@
     return self;
 }
 
+-(void)loadView
+{
+
+    [super loadView];
+    NSString *manPath = [[NSBundle mainBundle]pathForResource:@"man" ofType:@"json"];
+    NSDictionary  *manArray;
+    if ([[NSFileManager defaultManager]fileExistsAtPath:manPath]) {
+        NSString *temp = [NSString stringWithContentsOfFile:manPath encoding:NSUTF8StringEncoding error:nil];
+        manArray = [temp JSONValue];
+        TRACE(@"manArray = %@", [manArray objectForKey:@"info"]);
+    }
+    NSString *womanPath = [[NSBundle mainBundle]pathForResource:@"woman" ofType:@"json"];
+    NSDictionary  *womanArray;
+    if ([[NSFileManager defaultManager]fileExistsAtPath:womanPath]) {
+        NSString *temp = [NSString stringWithContentsOfFile:womanPath encoding:NSUTF8StringEncoding error:nil];
+        womanArray = [temp JSONValue];
+    }
+    _manView = [[customBrandView alloc]initWithType:1 andDic:[manArray objectForKey:@"info"]];
+    _manView.frame = CGRectMake(0, 0, 320, 480);
+    _manView.contentSize = CGSizeMake(320, 560);
+    _manView.btnDelegate = self; 
+    [self.view addSubview:_manView];
+    _manView.hidden = YES;
+    _womanView = [[customBrandView alloc]initWithType:2 andDic:[womanArray objectForKey:@"info"]];
+    _womanView.frame = CGRectMake(0, 0, 320, 480);
+    _womanView.contentSize = CGSizeMake(320, 780);
+    _womanView.btnDelegate = self; 
+    [self.view addSubview:_womanView];
+    self.view.backgroundColor = [UIColor clearColor];
+    SVSegmentedControl *navSC = [[SVSegmentedControl alloc] initWithSectionTitles:[NSArray arrayWithObjects:@"", @"", nil]];
+    navSC.frame = CGRectMake(258, 9, 52, 28);
+    navSC.backgroundImage= [UIImage imageNamed:@"male_bg.png"];
+    navSC.thumb.frame = CGRectMake(0, 0, 26, 28);
+    navSC.thumb.backgroundImage = [UIImage imageNamed:@"male_button.png"];
+    navSC.thumb.highlightedBackgroundImage = [UIImage imageNamed:@"male_button.png"];
+    navSC.delegate=self;
+    // navSC.thumb.frame = CGRectMake(0, 0, 26, 20);
+    
+    UIBarButtonItem *searchBtn = [[UIBarButtonItem alloc]initWithCustomView:navSC];
+    self.navigationItem.rightBarButtonItem = searchBtn;
+    [searchBtn release];
+
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    UITableView  *set = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    set.delegate=self;
-    set.dataSource = self;
-    if (!_refreshHeaderView ) 
-    {  
-        _refreshHeaderView = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0-set.bounds.size.height, self.view.frame.size.width, set.bounds.size.height)];  
-        _refreshHeaderView.delegate = self;  
-        _refreshHeaderView.backgroundColor = [UIColor clearColor];
-
-    }  
-    [_refreshHeaderView refreshLastUpdatedDate];  
-    [set addSubview:_refreshHeaderView];
-    self.view = set;
+    _fullScreenDelegate.enabled =NO;
 }
 
 - (void)viewDidUnload
@@ -54,75 +89,42 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-#pragma mark - Table view data source
 
+#pragma mark --SVSegmentedControlDelegate
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+-(void)segmentedControl:(SVSegmentedControl *)segmentedControl didSelectIndex:(NSUInteger)index
 {
-return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 100;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) 
+    
+    if (index==0) {
+        _manView.hidden =YES;
+        _womanView.hidden =NO;
+        _womanView.alpha=0;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        _womanView.alpha=1;
+        [UIView commitAnimations];
+        
+    }
+    else
     {
-        cell = [[[UITableViewCell alloc] init] autorelease];
-        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+        _manView.hidden=NO;
+        _womanView.hidden =YES;
+        _manView.alpha=0;
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.5];
+        _manView.alpha=1;
+        [UIView commitAnimations];
     }
 
-    // Configure the cell...
-    cell.textLabel.text = [NSString stringWithFormat:@"%d-%d (%d)",indexPath.section,indexPath.row,arc4random()];
-    
-    return cell;
 }
-#pragma mark -  
-#pragma mark Data Source Loading / Reloading Methods  
-
-- (void)reloadTableViewDataSource{  
-    _reloading = YES;  
-}  
-
-- (void)doneLoadingTableViewData{  
-    
-    //  model should call this when its done loading  
-    _reloading = NO;  
-    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.view];  
-}  
-
-#pragma mark -  
-#pragma mark UIScrollViewDelegate Methods  
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{  
-    [super scrollViewDidScroll:scrollView];
-    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView]; 
-}  
-
-#pragma mark -  
-#pragma mark EGORefreshTableHeaderDelegate Methods  
-
-- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{  
-    
-    [self reloadTableViewDataSource];
-    //[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];  
-}  
-
-- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view{  
-    
-    return _reloading; // should return if data source model is reloading  
-    
-}  
-
-- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view{  
-    
-    return [NSDate date]; // should return date data source was last changed  
-    
-}  
+#pragma mark --itemButtonDelegate
+-(void)itemButtonClicked:(id)sender
+{
+    brandCateViewController *cateView =  [[brandCateViewController alloc]init];
+    ItemButton *button = (ItemButton *)sender;
+    cateView.title = button.title;
+    [self.navigationController pushViewController:cateView animated:YES];
+    [cateView release];
+}
 
 @end
